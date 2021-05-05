@@ -16,7 +16,7 @@ class NaturalLogarithm {
         if(x > 1)
             return -calculate(1/x)
 
-        val termsNumber = 100
+        val termsNumber = 80
         var sign = -1
 
         for(i in 1..termsNumber){
