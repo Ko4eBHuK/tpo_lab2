@@ -1,9 +1,11 @@
 import kotlin.math.*
 import trigonometric.*
 import logarithmic.*
+import system.FunctionSystem
 
 
 fun main(args: Array<String>) {
+    /*
     println("~~~~SINE~~~~")
     val sine = Sine(0.000001)
     println("Mine X=0.7: ${sine.calculate(0.7)}")
@@ -59,4 +61,26 @@ fun main(args: Array<String>) {
     println("Dflt X=0.2: ${log(0.2, 5.0)}")
     println("accuracy  : ${logBaseFive.accuracy}")
     println()
+
+     */
+
+    print("Введите погрешность для вычисления функции, заданной системой: ")
+    val accuracy = readLine()!!.toDouble()
+    val funcSystem = FunctionSystem(accuracy)
+    print("Введите аргумент для вычисления функции, заданной системой: ")
+    val arg = readLine()!!.toDouble()
+    val result = funcSystem.calculate(arg)
+    println("Результат mine: $result")
+
+    val compRes : Double = if(arg <= 0) {
+        1 / cos(arg) - cos(arg) - 1 / sin(arg)
+    } else{
+        ((log(arg, 5.0) + log(arg, 3.0) + log(arg, 5.0)).pow(3).pow(2)
+                + log(arg, 2.0) - log(arg, 5.0) * log(arg, 3.0) )
+    }
+
+    println("Результат comp: $compRes")
+
+
+
 }
