@@ -1,86 +1,36 @@
-import kotlin.math.*
 import trigonometric.*
 import logarithmic.*
 import system.FunctionSystem
 
 
 fun main(args: Array<String>) {
-    /*
-    println("~~~~SINE~~~~")
+    val csvWriter = CSV()
+
     val sine = Sine(0.000001)
-    println("Mine X=0.7: ${sine.calculate(0.7)}")
-    println("Dflt X=0.7: ${sin(0.7)}")
-    println("accuracy  : ${sine.accuracy}")
-    println()
+    csvWriter.write("sine", sine, -0.03, 2.0, 0.01)
 
-    println("~~~COSINE~~~")
     val cosine = Cosine(0.0001)
-    println("Mine X=0.7: ${cosine.calculate(0.7)}")
-    println("Dflt X=0.7: ${cos(0.7)}")
-    println("accuracy  : ${cosine.accuracy}")
-    println()
+    csvWriter.write("cosine", cosine, -0.03, 0.08, 0.01)
 
-    println("~~~SECANT~~~")
     val secant = Secant(0.0001)
-    println("Mine X=0.7: ${secant.calculate(0.7)}")
-    println("Dflt X=0.7: ${1 / cos(0.7)}")
-    println("accuracy  : ${secant.accuracy}")
-    println()
+    csvWriter.write("secant", secant, -0.03, 0.08, 0.01)
 
-    println("~~COSECANT~~")
     val cosecant = Cosecant(0.0001)
-    println("Mine X=0.7: ${cosecant.calculate(0.7)}")
-    println("Dflt X=0.7: ${1 / sin(0.7)}")
-    println("accuracy  : ${cosecant.accuracy}")
-    println()
+    csvWriter.write("cosecant", cosecant, -0.3, 0.8, 0.1)
 
-    println("~~~~~LN~~~~~")
     val natLog = NaturalLogarithm(0.0000001)
-    println("Mine X=e: ${natLog.calculate(E)}")
-    println("Dflt X=e: ${ln(E)}")
-    println("accuracy  : ${natLog.accuracy}")
-    println()
+    csvWriter.write("natLog", natLog, 0.0, 3.0, 0.01)
 
-    println("~~~~Log2~~~~")
     val logBaseTwo = LogarithmToBaseTwo(0.0001)
-    println("Mine X=0.25: ${logBaseTwo.calculate(0.25)}")
-    println("Dflt X=0.25: ${log(0.25, 2.0)}")
-    println("accuracy  : ${logBaseTwo.accuracy}")
-    println()
+    csvWriter.write("logBaseTwo", logBaseTwo, 0.5, 2.0, 0.1)
 
-    println("~~~~Log3~~~~")
     val logBaseThree = LogarithmToBaseThree(0.00001)
-    println("Mine X=3.0: ${logBaseThree.calculate(3.0)}")
-    println("Dflt X=3.0: ${log(3.0, 3.0)}")
-    println("accuracy  : ${logBaseThree.accuracy}")
-    println()
+    csvWriter.write("logBaseThree", logBaseThree, 0.2, 3.0, 0.1)
 
-    println("~~~~Log5~~~~")
     val logBaseFive = LogarithmToBaseFive(0.00000000001)
-    println("Mine X=0.2: ${logBaseFive.calculate(0.2)}")
-    println("Dflt X=0.2: ${log(0.2, 5.0)}")
-    println("accuracy  : ${logBaseFive.accuracy}")
-    println()
+    csvWriter.write("logBaseFive", logBaseFive, 0.1, 6.0, 0.1)
 
-     */
-
-    print("Введите погрешность для вычисления функции, заданной системой: ")
-    val accuracy = readLine()!!.toDouble()
-    val funcSystem = FunctionSystem(accuracy)
-    print("Введите аргумент для вычисления функции, заданной системой: ")
-    val arg = readLine()!!.toDouble()
-    val result = funcSystem.calculate(arg)
-    println("Результат mine: $result")
-
-    val compRes : Double = if(arg <= 0) {
-        1 / cos(arg) - cos(arg) - 1 / sin(arg)
-    } else{
-        ((log(arg, 5.0) + log(arg, 3.0) + log(arg, 5.0)).pow(3).pow(2)
-                + log(arg, 2.0) - log(arg, 5.0) * log(arg, 3.0) )
-    }
-
-    println("Результат comp: $compRes")
-
-
+    val funcSystem = FunctionSystem(0.0001)
+    csvWriter.write("funcSystem", funcSystem, -0.7, 2.0, 0.1)
 
 }
