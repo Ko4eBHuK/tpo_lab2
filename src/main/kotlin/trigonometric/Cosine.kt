@@ -3,10 +3,11 @@ package trigonometric
 import Function
 import kotlin.math.*
 
-class Cosine(override var accuracy: Double) : Function(accuracy)  {
+class Cosine(_sine: Sine) : Function(_sine.accuracy)  {
+    private val sine = _sine
+
 
     override fun calculate(x: Double) : Double{
-        val sine = Sine(accuracy)
         return sqrt(1 - sine.calculate(x).pow(2))
     }
 }
