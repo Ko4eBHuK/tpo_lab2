@@ -11,6 +11,12 @@ class Sine(override var accuracy: Double) : Function(accuracy){
         var factorial: Int
         var sign = -1
         var prevRes: Double
+        var arg = x
+
+        while(arg > PI)
+            arg -= 2 * PI
+        while(arg < -PI)
+            arg += 2 * PI
 
         for (i in 1..termsNumber step 2){
             prevRes = result
@@ -20,7 +26,7 @@ class Sine(override var accuracy: Double) : Function(accuracy){
                 factorial *= j
 
             sign *= -1
-            result += sign * x.pow(i) / factorial
+            result += sign * arg.pow(i) / factorial
 
             if(abs(prevRes - result) <= accuracy)
                 break

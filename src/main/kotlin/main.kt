@@ -1,6 +1,7 @@
 import trigonometric.*
 import logarithmic.*
 import system.FunctionSystem
+import kotlin.math.PI
 
 fun main(args: Array<String>) {
     val sine = Sine(0.000001)
@@ -18,8 +19,8 @@ fun main(args: Array<String>) {
     val csvWriter = CSV()
     csvWriter.write("sine", sine, -2.0, 2.0, 0.1)
     csvWriter.write("cosine", cosine, -3.0, 3.0, 0.1)
-    csvWriter.write("secant", secant, -1.0, 1.0, 0.1)
-    csvWriter.write("cosecant", cosecant, -0.5, 0.8, 0.1)
+    csvWriter.write("secant", secant, -3.0, 3.0, 0.1)
+    csvWriter.write("cosecant", cosecant, -3.0, 3.0, 0.1)
 
     csvWriter.write("natLog", natLog, 0.0, 3.0, 0.1)
     csvWriter.write("logBaseTwo", logBaseTwo, 0.5, 2.0, 0.1)

@@ -6,6 +6,8 @@ class Cosecant(_sine: Sine) : Function(_sine.accuracy)  {
     private val sine = _sine
 
     override fun calculate(x: Double) : Double{
-        return 1 / sine.calculate(x)
+        return if(sine.calculate(x) == 0.0)
+            Double.POSITIVE_INFINITY
+        else 1 / sine.calculate(x)
     }
 }
