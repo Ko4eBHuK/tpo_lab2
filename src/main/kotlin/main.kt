@@ -1,7 +1,6 @@
 import trigonometric.*
 import logarithmic.*
 import system.FunctionSystem
-import kotlin.math.PI
 
 fun main(args: Array<String>) {
     val sine = Sine(0.000001)
