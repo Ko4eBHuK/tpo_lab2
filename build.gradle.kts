@@ -13,19 +13,27 @@ repositories {
 }
 
 dependencies {
-    testImplementation(kotlin("test-junit5"))
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.0")
+    testImplementation(platform("org.junit:junit-bom:5.7.2"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    /**
+     * JUnit jupiter with mockito.
+     */
+    testImplementation("org.mockito:mockito-junit-jupiter:2.19.0")
+    testImplementation("org.mockito:mockito-core:2.19.0")
 }
 
 tasks.test {
     useJUnitPlatform()
+    testLogging {
+        events("passed", "skipped", "failed")
+    }
 }
 
 tasks.withType<KotlinCompile>() {
     kotlinOptions.jvmTarget = "1.8"
 }
+/*
 
 application {
     mainClassName = "MainKt"
-}
+}*/

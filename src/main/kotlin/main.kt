@@ -28,4 +28,6 @@ fun main(args: Array<String>) {
     csvWriter.write("logBaseFive", logBaseFive, 0.1, 6.0, 0.1)
 
     csvWriter.write("funcSystem", funcSystem, -0.7, 2.0, 0.1)
+
+    println("pro100_bor")
 }
