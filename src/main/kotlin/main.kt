@@ -18,7 +18,7 @@ fun main(args: Array<String>) {
     val csvWriter = CSV()
     csvWriter.write("sine", sine, -2.0, 2.0, 0.1)
     csvWriter.write("cosine", cosine, -3.0, 3.0, 0.1)
-    csvWriter.write("secant", secant, -3.0, 3.0, 0.1)
+    csvWriter.write("secant", secant, -3.0, 3.0, 0.01)
     csvWriter.write("cosecant", cosecant, -3.0, 3.0, 0.1)
 
     csvWriter.write("natLog", natLog, 0.0, 3.0, 0.1)

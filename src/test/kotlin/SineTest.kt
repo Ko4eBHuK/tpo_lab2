@@ -1,7 +1,10 @@
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.ValueSource
 
-import org.junit.jupiter.api.Assertions.*
+import kotlin.math.*
+
 import trigonometric.Sine
 
 internal class SineTest {
@@ -14,7 +17,9 @@ internal class SineTest {
         sine = Sine(accuracy)
     }
 
-    @Test
-    fun calculate() {
+    @ParameterizedTest
+    @ValueSource(doubles = [0.0, 0.5, 2*PI, PI / 2, -3 * PI / 2, -1.0])
+    fun testSine(input: Double){
+        Assertions.assertEquals(sin(input), sine.calculate(input), delta)
     }
 }
