@@ -20,9 +20,7 @@ dependencies {
     /**
      * JUnit jupiter with mockito.
      */
-    //testImplementation("org.mockito:mockito-junit-jupiter:2.19.0")
     testImplementation("org.mockito:mockito-core:3.10.0")
-    //testImplementation("org.mockito:mockito-inline:2.19.0")
 }
 
 tasks.test {

@@ -2,7 +2,7 @@ import trigonometric.*
 import logarithmic.*
 import system.FunctionSystem
 
-fun main(args: Array<String>) {
+fun main() {
     val sine = Sine(0.000001)
     val cosine = Cosine(sine)
     val secant = Secant(cosine)
@@ -26,7 +26,5 @@ fun main(args: Array<String>) {
     csvWriter.write("logBaseThree", logBaseThree, 0.2, 3.0, 0.1)
     csvWriter.write("logBaseFive", logBaseFive, 0.1, 6.0, 0.1)
 
-    csvWriter.write("funcSystem", funcSystem, -0.7, 2.0, 0.1)
-
-    println("pro100_bor")
+    csvWriter.write("funcSystem", funcSystem, -0.9, 4.5, 0.1)
 }

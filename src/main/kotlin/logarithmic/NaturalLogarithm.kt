@@ -14,8 +14,11 @@ class NaturalLogarithm(override var accuracy: Double) : Function(accuracy) {
         if(x == 0.0)
             result = Double.NEGATIVE_INFINITY
 
-        if(x > 1)
+        if(x > 1.0)
             return -calculate(1/x)
+
+        if(x == 1.0)
+            return 0.0
 
         val termsNumber = 80
         var sign = -1
